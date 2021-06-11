@@ -1,0 +1,45 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Car {
+  id: ID!
+  brand: String!
+  model: String!
+  year: Int!
+  km: Int!
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type CreateCarDto {
+  id: ID!
+  brand: String!
+  model: String!
+  year: Int!
+  km: Int!
+}
+
+type Query {
+  hello: String!
+  getCars: [Car!]!
+  getCarById(id: ID!): Car!
+  getCarsByBrand(brand: String!): [Car!]!
+}
+
+type Mutation {
+  createCar(data: CarInput!): CreateCarDto!
+  deleteCar(id: ID!): Boolean!
+}
+
+input CarInput {
+  brand: String!
+  model: String!
+  year: Int!
+  km: Int!
+}
